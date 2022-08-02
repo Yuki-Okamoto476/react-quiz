@@ -14,18 +14,18 @@ function App() {
     { id: 9, question: 'ZIP' },
     { id: 10, question: 'DIY' },
   ]
-  // const answer_list = [
-  //   { id: 1, answer: 'Information Technology',  },
-  //   { id: 2, answer: 'Digital Versatile Disc'},
-  //   { id: 3, answer: 'Compact Disc'},
-  //   { id: 4, answer: 'Universal Serial Bus'},
-  //   { id: 5, answer: 'Portable Document Format'},
-  //   { id: 6, answer: 'Frequently Asked Question'},
-  //   { id: 7, answer: 'Universal Resource Locator'},
-  //   { id: 8, answer: 'Quick Response'},
-  //   { id: 9, answer: 'Zone Improvement Plan'},
-  //   { id: 10, answer: 'Do It Yourself'},
-  // ]
+  const answer_list = [
+    { id: 1, answer: 'Information Technology',  },
+    { id: 2, answer: 'Digital Versatile Disc'},
+    { id: 3, answer: 'Compact Disc'},
+    { id: 4, answer: 'Universal Serial Bus'},
+    { id: 5, answer: 'Portable Document Format'},
+    { id: 6, answer: 'Frequently Asked Question'},
+    { id: 7, answer: 'Universal Resource Locator'},
+    { id: 8, answer: 'Quick Response'},
+    { id: 9, answer: 'Zone Improvement Plan'},
+    { id: 10, answer: 'Do It Yourself'},
+  ]
   const [index, setIndex] = useState(1)
   const initial_number = 1
   const last_number = 10
@@ -43,6 +43,9 @@ function App() {
       <Heading>Abbreviation Quiz</Heading>
       <Text align="center" fontSize={28}>
         Q{index}: {question_list[index - 1].question}
+      </Text>
+      <Text align="center" fontSize={28}>
+        A: {answer_list[index - 1].answer}
       </Text>
       <Center>
         {index === initial_number ? (

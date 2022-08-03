@@ -15,7 +15,7 @@ function App() {
     { id: 10, question: 'DIY' },
   ]
   const answer_list = [
-    { id: 1, answer: 'Information Technology',  },
+    { id: 1, answer: 'Information Technology'},
     { id: 2, answer: 'Digital Versatile Disc'},
     { id: 3, answer: 'Compact Disc'},
     { id: 4, answer: 'Universal Serial Bus'},

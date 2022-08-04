@@ -1,76 +1,96 @@
-import { Button, Center, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Text } from '@chakra-ui/react'
+import { ArrowBackIcon, ArrowDownIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 
 function App() {
-  const question_list = [
+  const questionList = [
     { id: 1, question: 'IT' },
     { id: 2, question: 'DVD' },
     { id: 3, question: 'CD' },
-    { id: 4, question: 'USB' },
-    { id: 5, question: 'PDF' },
-    { id: 6, question: 'FAQ' },
-    { id: 7, question: 'URL' },
-    { id: 8, question: 'QR' },
-    { id: 9, question: 'ZIP' },
-    { id: 10, question: 'DIY' },
+    { id: 4, question: 'ETC' },
+    { id: 5, question: 'DIY' },
+    { id: 6, question: 'USB' },
+    { id: 7, question: 'PDF' },
+    { id: 8, question: 'FAQ' },
+    { id: 9, question: 'URL' },
+    { id: 10, question: 'QR' },
   ]
-  const answer_list = [
-    { id: 1, answer: 'Information Technology'},
-    { id: 2, answer: 'Digital Versatile Disc'},
-    { id: 3, answer: 'Compact Disc'},
-    { id: 4, answer: 'Universal Serial Bus'},
-    { id: 5, answer: 'Portable Document Format'},
-    { id: 6, answer: 'Frequently Asked Question'},
-    { id: 7, answer: 'Universal Resource Locator'},
-    { id: 8, answer: 'Quick Response'},
-    { id: 9, answer: 'Zone Improvement Plan'},
-    { id: 10, answer: 'Do It Yourself'},
+  const answerList = [
+    { id: 1, answer: 'Information Technology' },
+    { id: 2, answer: 'Digital Versatile Disc（デジタル多用途ディスク）' },
+    { id: 3, answer: 'Compact Disc' },
+    { id: 4, answer: 'Electronic Toll Collection System（自動料金収受システム）' },
+    { id: 5, answer: 'Do It Yourself' },
+    { id: 6, answer: 'Universal Serial Bus' },
+    { id: 7, answer: 'Portable Document Format' },
+    { id: 8, answer: 'Frequently Asked Question' },
+    { id: 9, answer: 'Universal Resource Locator' },
+    { id: 10, answer: 'Quick Response' },
   ]
-  const [index, setIndex] = useState(1)
-  const initial_number = 1
-  const last_number = 10
+  const initialNumber = 1
+  const lastNumber = 10
 
+  const [index, setIndex] = useState(1)
+  const [isShow, setIsShow] = useState(false)
+
+  const showAnswer = () => {
+    setIsShow(true)
+  }
   const goBackToPrevQuestion = () => {
     setIndex(index - 1)
+    setIsShow(false)
   }
-
   const goToNextQuestion = () => {
     setIndex(index + 1)
+    setIsShow(false)
   }
 
   return (
-    <div>
-      <Heading>Abbreviation Quiz</Heading>
-      <Text align="center" fontSize={28}>
-        Q{index}: {question_list[index - 1].question}
-      </Text>
-      <Text align="center" fontSize={28}>
-        A: {answer_list[index - 1].answer}
-      </Text>
-      <Center>
-        {index === initial_number ? (
-          <Button colorScheme="blue" disabled>
-            前の問題へ
-          </Button>
-        ) : (
-          <Button colorScheme="blue" onClick={goBackToPrevQuestion}>
-            前の問題へ
-          </Button>
-        )}
-        {index === last_number ? (
-          <Button colorScheme="blue" disabled>
-            次の問題へ
-          </Button>
-        ) : (
+    <Flex justify="center" align="center" height="100vh">
+      <Box>
+        <Text align="center" fontSize={42}>
+          問{index}: {questionList[index - 1].question}
+        </Text>
+        <Center>
           <Button
+            rightIcon={<ArrowDownIcon />}
             colorScheme="blue"
-            onClick={goToNextQuestion}
+            variant="outline"
+            mt={8}
+            onClick={showAnswer}
           >
-            次の問題へ
+            答え
           </Button>
+        </Center>
+        {isShow && (
+          <Text align="center" fontSize={36} mt={8}>
+            答: {answerList[index - 1].answer}
+          </Text>
         )}
-      </Center>
-    </div>
+        <Box mt={8}>
+          <Center>
+            {index === initialNumber ? (
+              <Button colorScheme="blue" mr={8} leftIcon={<ArrowBackIcon />} disabled>
+                前の問題へ
+              </Button>
+            ) : (
+              <Button colorScheme="blue" mr={8} leftIcon={<ArrowBackIcon />} onClick={goBackToPrevQuestion}>
+                前の問題へ
+              </Button>
+            )}
+            {index === lastNumber ? (
+              <Button colorScheme="blue" rightIcon={<ArrowForwardIcon />} disabled>
+                次の問題へ
+              </Button>
+            ) : (
+              <Button colorScheme="blue" rightIcon={<ArrowForwardIcon />} onClick={goToNextQuestion}>
+                次の問題へ
+              </Button>
+            )}
+          </Center>
+        </Box>
+      </Box>
+    </Flex>
   )
 }
 

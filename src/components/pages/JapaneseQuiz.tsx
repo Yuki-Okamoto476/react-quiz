@@ -9,31 +9,28 @@ import { useNavigate } from 'react-router-dom'
 
 export const JapaneseQuiz: FC = memo(() => {
   const questionList = [
-    { id: 1, question: 'IT' },
-    { id: 2, question: 'DVD' },
-    { id: 3, question: 'CD' },
-    { id: 4, question: 'ETC' },
-    { id: 5, question: 'DIY' },
-    { id: 6, question: 'USB' },
-    { id: 7, question: 'PDF' },
-    { id: 8, question: 'FAQ' },
-    { id: 9, question: 'URL' },
-    { id: 10, question: 'QR' },
+    { id: 1, question: '食パン' },
+    { id: 2, question: 'ボールペン' },
+    { id: 3, question: '教科書' },
+    { id: 4, question: 'ブログ' },
+    { id: 5, question: '割り勘' },
+    { id: 6, question: 'ディスる' },
+    { id: 7, question: 'ピアノ' },
+    { id: 8, question: 'チューハイ' },
+    { id: 9, question: 'シャーペン' },
+    { id: 10, question: 'カラオケ' },
   ]
   const answerList = [
-    { id: 1, answer: 'Information Technology' },
-    { id: 2, answer: 'Digital Versatile Disc（デジタル多用途ディスク）' },
-    { id: 3, answer: 'Compact Disc' },
-    {
-      id: 4,
-      answer: 'Electronic Toll Collection System（自動料金収受システム）',
-    },
-    { id: 5, answer: 'Do It Yourself' },
-    { id: 6, answer: 'Universal Serial Bus' },
-    { id: 7, answer: 'Portable Document Format' },
-    { id: 8, answer: 'Frequently Asked Question' },
-    { id: 9, answer: 'Universal Resource Locator' },
-    { id: 10, answer: 'Quick Response' },
+    { id: 1, answer: '主食用パン' },
+    { id: 2, answer: 'ボールポイントペン' },
+    { id: 3, answer: '教科用図書' },
+    { id: 4, answer: 'ウェブログ',},
+    { id: 5, answer: '割前勘定' },
+    { id: 6, answer: 'ディスリスペクト（disrespect）' },
+    { id: 7, answer: 'クラヴィチェンバロ・コル・ピアノ・エ・フォルテ' },
+    { id: 8, answer: '焼酎ハイボール' },
+    { id: 9, answer: 'エバー・レディー・シャープペンシル' },
+    { id: 10, answer: '空オーケストラ' },
   ]
   const initialNumber = 1
   const lastNumber = 10
